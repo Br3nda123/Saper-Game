@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Minesweeper</title>
+		<link rel="stylesheet" href="./css/style.css" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<main class="game">
+			<header class="header border border--convex">
+				<article class="header_counter" data-counter>0</article>
+				<button class="header_reset border border--concave" data-button-reset>
+					<svg class="header_button">
+						<use href="./assets/sprite.svg#neutral"></use>
+					</svg>
+				</button>
+				<article class="header_counter" data-timer>0</article>
+			</header>
+			<article class="game_board border border--convex" data-board></article>
+			<article class="game_panel border border--convex">
+				<header class="panel_header">
+					<h1 class="panel_heading">Select Difficulty</h1>
+				</header>
+				<selection class="panel_buttons">
+					<button class="button"data-button-easy>Easy</button>
+					<button class="button"data-button-normal>Normal</button>
+					<button class="button"data-button-expert>Expert</button>
+					<button id="buttonCustom" class="button"data-button-custom>Custom</button>
+				</selection>
+			</article>
+			<article class="modal hide" data-modal>
+				<section class="modal_content">
+					<h2 class="modal_text" data-modal-header>You won!</h2>
+					<button class="modal_button"data-modal-button>Play again</button>
+				</section>
+			</article>
+			<article class="modal custom hide" data-custom-modal>
+				<section class="modal_content">
+					<h2 class="modal_text" data-custom-modal-header>Try with your own board.</h2>
+					<section class="modal_inputs">
+						<div class="div_input">
+							<label for="rows">Type number of rows</label>
+							<input type="number" name="rows" class="modal_input" max="30" min="8" placeholder="Max: 30, min: 8" data-custom-modal-input-rows>
+						</div>
+						<div class="div_input">
+							<label for="cols">Type number of columns</label>
+							<input type="number" name="cols" class="modal_input" max="24" min="8" placeholder="Max: 24, min: 8" data-custom-modal-input-cols>		
+						</div>
+						<div class="div_input">
+							<label for="mines">Type number of mines</label>
+							<input type="number" name="mines" class="modal_input" max="667" min="10" placeholder="Max: 667, min: 10" data-custom-modal-input-mines> 
+						</div>
+					</section>
+					<div class="custom_buttons">
+					<button class="modal_button"data-custom-modal-button-agree>Agree</button>
+					<button class="modal_button" data-custom-modal-button-cancel>Cancel</button>
+				</div>
+				<p class="paragraf_modal_error" data-custom-modal-paragraf>Every field must have a value!</p>
+				<p class="paragraf_modal_custom">Maximum number of mines on the board is (rows - 1)(columns - 1). From 10 to 667 mines.</p>
+				</section>
+			</article>
+		</main>
+		<script src="./js/Game.js" type="module"></script>
+	</body>
+</html>
